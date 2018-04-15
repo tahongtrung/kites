@@ -9,6 +9,6 @@ Tham khảo:
 
 <!-- References -->
 [1]: https://kites.nodejs.vn
-[2]: https://kites.nodejs.vn/document
+[2]: https://kites.nodejs.vn/documentation
 [3]: https://github.com/vunb/kites
 [4]: https://github.com/vunb/kites-engine
