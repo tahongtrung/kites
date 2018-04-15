@@ -1,6 +1,5 @@
 'use strict'
 const path = require('path');
-const express = require('express');
 const kites = require('@kites/engine');
 
 /**
@@ -10,10 +9,6 @@ kites({
         loadConfig: true,
         discover: true
     })
-    .use(require('./extensions/sum'))
-    .use(require('@kites/express')({
-        static: path.join(__dirname, './docs')
-    }))
     .init()
     .then(function (kites) {
         var app = kites.express.app;

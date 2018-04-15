@@ -8,5 +8,8 @@
         }
 
     },
-    "extensions": null
+    "extensions": null,
+    "express": {
+        "static": "./docs"
+    }
 }
