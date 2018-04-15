@@ -1,0 +1,19 @@
+title: API Documentation - Kites Framework
+
+language_tabs:
+  - javascript
+  - bash
+
+toc_footers:
+  - <a href='#'>Đăng ký tài khoản Developer <u>tại đây</u></a>
+  - <a href='https://kites.nodejs.vn'>Trang chủ <u>kites.nodejs.vn</u></a>
+  - <a href='https://github.com/tripit/slate'>Khung tài liệu sử dụng mã mở Slate</a>
+
+includes:
+  - main
+  - _errors
+  - appendix
+
+search: true
+
+highlight_theme: monokai

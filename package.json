@@ -1,10 +1,13 @@
 {
   "name": "kites",
   "version": "0.9.1",
-  "description": "Kites Framework",
+  "description": "API Documentation - Kites Framework",
   "main": "app.js",
   "scripts": {
     "test": "node test/start.js",
+    "clean": "del-cli docs/*",
+    "build": "npm run clean && gulp",
+    "dev": "npm run clean && gulp serve",
     "start": "node app.js"
   },
   "repository": {
@@ -13,10 +16,12 @@
   },
   "keywords": [
     "api",
+    "apidoc",
     "kites",
     "web-api",
     "framework",
-    "generate"
+    "generate",
+    "slate"
   ],
   "author": "Vunb",
   "license": "MIT",
@@ -25,9 +30,29 @@
   },
   "homepage": "https://kites.nodejs.vn",
   "devDependencies": {
+    "del": "^3.0.0",
+    "del-cli": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-ejs": "^3.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-live-server": "^0.0.31",
+    "gulp-open": "^2.0.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.7",
+    "highlight.js": "^9.2.0",
+    "js-yaml": "^3.5.5",
+    "marked": "^0.3.5",
+    "node-sass": "^4.5.3",
     "tape": "^4.6.3"
   },
   "dependencies": {
-    "@kites/engine": "^0.1.2"
+    "@kites/engine": "^0.1.3",
+    "@kites/express": "^0.1.4"
   }
 }

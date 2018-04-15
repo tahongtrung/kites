@@ -1,4 +1,6 @@
 'use strict'
+const path = require('path');
+const express = require('express');
 const kites = require('@kites/engine');
 
 /**
@@ -9,11 +11,14 @@ kites({
         discover: false
     })
     .use(require('./extensions/sum'))
+    .use(require('@kites/express')({
+        static: path.join(__dirname, './docs')
+    }))
     .init()
     .then(function (kites) {
-        var total = kites.sum([2, 4, 6, 8]);
-        kites.logger.info('Kites total: ', total);
-        kites.logger.info('Hello world!');
+        var app = kites.express.app;
+        // always serve index.html
+        app.get('/*', (req, res) => res.sendFile(path.resolve(__dirname, `./docs/index.html`)));
     })
     .catch(function (e) {
         console.error(e.stack);
