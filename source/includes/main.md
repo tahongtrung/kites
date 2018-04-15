@@ -11,7 +11,7 @@ Bạn có thể tạo những template như thế này một cách dễ dàng v�
 
 ```bash
 # Sử dụng @kites/cli
-kites init my-app --template express
+kites init my-app --template basic
 ```
 
 ```javascript
