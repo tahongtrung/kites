@@ -1,5 +1,5 @@
 'use strict'
-const kites = require('@kites/engine');
+const engine = require('@kites/engine');
 
 engine({
         loadConfig: true,
