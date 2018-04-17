@@ -8,12 +8,9 @@ engine({
         loadConfig: true,
         discover: true
     })
-    .use(require('./extensions/utils'))
     .init()
     .then(function (kites) {
-        var total = kites.sum([2, 4, 6, 8]);
-        kites.logger.info('Kites total: ', total);
-        kites.logger.info('Hello world!');
+        kites.logger.info('Kites express: Hello world!');
     })
     .catch(function (e) {
         console.error(e.stack);
