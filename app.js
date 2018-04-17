@@ -1,11 +1,7 @@
 'use strict'
-const path = require('path');
 const kites = require('@kites/engine');
 
-/**
- * minimalist kites application
- */
-kites({
+engine({
         loadConfig: true,
         discover: true
     })
