@@ -26,6 +26,12 @@
 * Deploy: `npm run deploy`
 * Publish: `git add . && git push origin gh-pages`
 
+# gh-pages as a project submodule
+
+```bash
+> git submodule add -b gh-pages --name dist --force https://github.com/vunb/kites.git dist
+> git submodule update --remote
+```
 
 # References
 

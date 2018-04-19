@@ -9,4 +9,3 @@ _site/
 .vscode
 npm-debug.log
 docs
-dist
