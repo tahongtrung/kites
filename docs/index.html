@@ -1,0 +1,181 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation - Kites Framework</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="stylesheets/highlight-monokai.css" rel="stylesheet" type="text/css" media="screen, print" />
+    <script src="javascripts/all.js" type="text/javascript"></script>
+  </head>
+
+  <body class="" data-languages="[&#34;javascript&#34;,&#34;bash&#34;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img alt="undefined" class="undefined" src="images/navbar.png">
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img alt="undefined" class="undefined" src="images/logo.png">
+      
+        <div class="lang-selector">
+          
+            <a href="#" data-language-name="javascript">javascript</a>
+          
+            <a href="#" data-language-name="bash">bash</a>
+          
+        </div>
+      
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      
+      <div id="toc">
+      </div>
+      
+        <ul class="toc-footer">
+          
+            <li><a href='#'>Đăng ký tài khoản Developer <u>tại đây</u></a></li>
+          
+            <li><a href='https://kites.nodejs.vn'>Trang chủ <u>kites.nodejs.vn</u></a></li>
+          
+            <li><a href='https://github.com/tripit/slate'>Khung tài liệu sử dụng mã mở Slate</a></li>
+          
+        </ul>
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="gi-i-thi-u">Giới thiệu</h1>
+<p><strong>Kites</strong> là một <strong>Framework</strong> hỗ trợ xây dựng nhanh chóng các ứng dụng Web bằng cách bung nén các templates đã được xây dựng sẵn.</p>
+<aside class="notice">
+Bạn có thể tạo những template như thế này một cách dễ dàng và có thể tạo PR, đóng góp cho kites lớn mạnh hơn.
+</aside>
+
+
+<blockquote>
+<p>Bạn có thể tạo nhanh chóng một ứng dụng kites bằng 1 vài dòng code như thế này:</p>
+</blockquote>
+<pre class="highlight bash"><code><span class="hljs-comment"># Sử dụng @kites/cli</span>
+kites init my-app --template express</code></pre><pre class="highlight javascript"><code><span class="hljs-keyword">var</span> engine = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@kites/engine'</span>)
+<span class="hljs-keyword">var</span> kites = engine()
+
+kites.use(<span class="hljs-function">(<span class="hljs-params">kites</span>) =&gt;</span> {
+    kites.message = <span class="hljs-string">'Hello World!'</span>
+})
+
+kites.init().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'From kites: '</span>, kites.message)
+})</code></pre><p>Các thành phần cơ bản:</p>
+<ul>
+<li><strong><a href="https://npmjs.com/package/@kites/engine">@kites/engine</a></strong>: Thành phần lõi, là engine tạo nên kites.</li>
+</ul>
+<p><strong>Kites</strong> có thể mở rộng một cách dễ dàng, dưới đây là những thành phần chính thức quan trọng khác để tạo nên kites template:</p>
+<ul>
+<li><strong><a href="https://npmjs.com/package/@kites/express">@kites/express</a></strong>: Thành phần xử lý các HTTP requests.</li>
+<li><strong><a href="https://npmjs.com/package/@kites/cli">@kites/cli</a></strong>: Thành phần hỗ trợ dòng lệnh, tạo nhanh ứng dụng mới.</li>
+</ul>
+<h1 id="kites-cli">Kites cli</h1>
+<p>Đây là công cụ hỗ trợ gõ lệnh trên cửa sổ dòng lệnh</p>
+<blockquote>
+<p>Cài đặt kites cli sử dụng npm:</p>
+</blockquote>
+<pre class="highlight bash"><code><span class="hljs-comment"># Lưu ý trước đó bạn đã cài đặt Node.js và NPM</span>
+npm install -g @kites/cli</code></pre><pre class="highlight javascript"><code><span class="hljs-comment">// Lưu ý trước đó bạn đã cài đặt Node.js và NPM</span>
+npm install -g @kites/cli</code></pre><p>Hiện tại kites đã cung cấp cho developer thông qua gói thư viện npm:  <a href="https://npmjs.com/package/@kites/cli">npmjs.com/package/@kites/cli</a>.</p>
+
+        
+          <h1 id="b-ng-m-l-i">Bảng mã lỗi</h1>
+<aside class="notice">Phần này sẽ mô tả các mã lỗi trả về khi gọi api không đúng cách hoặc truyền sai các giá trị tham số.</aside>
+
+<p><strong>Kites API</strong> sử dụng bảng mã lỗi sau đây:</p>
+<table>
+<thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Truyền thiếu tham số hoặc sai kiểu dữ liệu</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- API accessToken của bạn sai hoặc hết hạn sử dụng</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- Truy nhập vào api, tài nguyên không được phép</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- Không tìm thấy tài nguyên yêu cầu</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- Không hỗ trợ phương thức yêu cầu</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- Yêu cầu không được chấp nhận</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- Tài nguyên truy vấn không còn tồn tại</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- Bạn gửi quá nhiều truy vấn vượt quá giới hạn cho phép</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- Máy chủ có lỗi, hãy thử lại sau 1 khoảng thời gian</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Not Implemented -- API chưa được cài đặt, hãy thử lại sau 1 khoảng thời gian</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- Dịch vụ bạn đang truy cập không có hoặc đang được nâng cấp</td>
+</tr>
+</tbody>
+</table>
+
+        
+          <h1 id="ph-l-c">Phụ lục</h1>
+<p>Tham khảo:</p>
+<ul>
+<li>Trang chủ <a href="https://kites.nodejs.vn">kites.nodejs.vn</a>, xem <a href="https://kites.nodejs.vn/document">tài liệu hướng dẫn</a></li>
+<li>Kites framework repository <a href="https://github.com/vunb/kites">nodevn/kites</a></li>
+<li>Kites engine source code <a href="https://github.com/vunb/kites-engine">nodevn/kites-engine</a></li>
+</ul>
+<!-- References -->
+
+        
+      </div>
+      <div class="dark-box">
+        
+          <div class="lang-selector">
+            
+              <a href="#" data-language-name="javascript">javascript</a>
+            
+              <a href="#" data-language-name="bash">bash</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
