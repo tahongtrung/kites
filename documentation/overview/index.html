@@ -3,7 +3,7 @@
 
 <head>
     
-    <title>Documentation - kites</title>
+    <title>Overview - kites</title>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -57,6 +57,8 @@
         window.settings = {};
 
         
+            window.settings.anchors = true; 
+        
 
         
     </script>
@@ -100,26 +102,76 @@
 		<span class="separator">/</span>
 		
 	  	
-	  		 Documentation
+	  		<a href="/documentation/">Documentation</a>
+	  	
+	  
+	
+		<span class="separator">/</span>
+		
+	  	
+	  		 Overview
 	  	
 	  
 	
 </div>
- <h1>Documentation</h1>
+ <h1>Overview</h1>
+
+<p><strong>Kites</strong> là một dự án mã nguồn mở đầy tham vọng với mục tiêu là tạo ra các ứng dụng Web một cách nhanh chóng, rất phù hợp cho doanh nghiệp vừa và nhỏ.</p>
+
+<p>Bạn có thể khởi tạo nhanh chóng một ứng dụng kites bằng lệnh sau đây:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>kites init my-project --template restful
+</code></pre>
+</div>
+
+<p>Kết thúc lệnh trên là bạn đã tạo ra một dự án RESTful API, rất đơn giản và nhanh chóng.</p>
+
+<h2>Mục tiêu của dự án Kites</h2>
 
 <ul>
-  <li>TODO: Need to update</li>
+  <li>Là 1 framework tạo ra các ứng dụng web đầy tham vọng</li>
+  <li>Là 1 công cụ dòng lệnh, hỗ trợ khởi tạo nhanh dự án</li>
+  <li>Mô-đun hóa các thành phần, tiện ích tái sử dụng thành các phần mở rộng (extensions)</li>
+  <li>Phân tách tầng ứng dụng: device access layer, database access layer, cron jobs, …</li>
+  <li>Đóng gói các dự án cơ sở thành khuôn mẫu (templates)</li>
+  <li>Mỗi một khuôn mẫu đều có <code class="highlighter-rouge">Dockerfile</code> và <code class="highlighter-rouge">docker-compose</code></li>
+  <li>Tích hợp với các dự án, module khác mà không gây ra xung đột</li>
 </ul>
 
-<div>
+<h2>Server side</h2>
 
-  <h4>General</h4>
+<p>Với mục tiêu là dễ dàng tạo ra một máy chủ phục vụ một ứng dụng Web, ta có thể khởi chạy ngay mà không phải cấu hình thêm bất cứ gì bằng một trong hai cách sau:</p>
 
-  <ul>
-    <li><a href="/documentation/overview/">Overview</a></li>
-  </ul>
+<p>(1) hoặc:</p>
 
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># tại thư mục của dự án</span>
+kites up
+</code></pre>
 </div>
+
+<p>(2) hoặc:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># tại thư mục của dự án</span>
+docker-compose build
+docker-compose up
+</code></pre>
+</div>
+
+<h2>Templates - Các khuôn mẫu dự án</h2>
+
+<ul>
+  <li>[x] <strong><code class="highlighter-rouge">basic</code></strong>: Template for building from scratch (<strong>default</strong>, current)</li>
+  <li>[x] <strong><code class="highlighter-rouge">apidoc</code></strong>: Template for API Documentation, <a href="https://github.com/nodevn/kites-apidoc">nodevn/kites-apidoc</a></li>
+  <li>[x] <code class="highlighter-rouge">express</code>: Template for Express Application</li>
+  <li>[ ] <code class="highlighter-rouge">restful</code>: Template for generating a RESTful API Server</li>
+  <li>[ ] <code class="highlighter-rouge">framework</code>: Assembling all into complete ship (default, next stage), <a href="https://kites.nodejs.vn/documentation">document</a></li>
+  <li>[ ] <code class="highlighter-rouge">spa</code>: Template for generating a Single Page Application (SPA)</li>
+  <li>[ ] <code class="highlighter-rouge">cms</code>: Template for generating a Content Management System (CMS)</li>
+  <li>[ ] <code class="highlighter-rouge">chat</code>: Template for generating a Chat application</li>
+  <li>[x] <code class="highlighter-rouge">chatbot</code>: Template for generating an AI Chatbot application, <a href="https://github.com/vntk/chatbot">vntk/chatbot</a>, <a href="https://github.com/vntk/chatbot">document</a></li>
+  <li>[ ] <code class="highlighter-rouge">videocall</code>: Template for generating a Video Call application</li>
+</ul>
+
 
         </div>
         
