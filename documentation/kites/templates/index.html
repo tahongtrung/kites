@@ -117,6 +117,19 @@
 	
 </div>
  <div class="api-toc-wrapper">
+<ul id="markdown-toc">
+  <li><a href="#kites-requirements" id="markdown-toc-kites-requirements">Yêu cầu tối thiểu</a></li>
+  <li><a href="#kites-apidoc-template" id="markdown-toc-kites-apidoc-template">ApiDoc Template</a>    <ul>
+      <li><a href="#kites-init-apidoc" id="markdown-toc-kites-init-apidoc">Cách tạo ApiDoc với kites như thế nào?</a>        <ul>
+          <li><a href="#kites-init-apidoc-1" id="markdown-toc-kites-init-apidoc-1">#1. Khởi tạo dự án của bạn</a></li>
+          <li><a href="#kites-init-apidoc-2" id="markdown-toc-kites-init-apidoc-2">#2. Phát triển và bảo trì dự án ApiDoc</a></li>
+          <li><a href="#kites-init-apidoc-3" id="markdown-toc-kites-init-apidoc-3">#3. Đưa tài liệu lên Web Online</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#kites-chatbot-template" id="markdown-toc-kites-chatbot-template">Chatbot Template</a></li>
+</ul>
 
 </div>
 
@@ -124,6 +137,140 @@
 
 <h1>Templates</h1>
 
+<p><strong>Kites</strong> là một dự án mã nguồn mở với mục tiêu là tạo ra các ứng dụng Web dựa trên các bản mẫu một cách nhanh chóng và dễ dàng.</p>
+
+<p>Do đó, trước khi bạn có thể khởi tạo được một loạt các ứng dụng bạn cần phải cài đặt <a href="https://npmjs.org/package/@kites/cli">@kites/cli</a> trước đã:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install -g @kites/cli
+</code></pre>
+</div>
+
+<h2 id="kites-requirements">Yêu cầu tối thiểu</h2>
+
+<section>
+
+  <p>Kites yêu cầu trước đó bạn đã cài đặt, phiên bản thấp hơn sẽ không được hỗ trợ:</p>
+
+  <ul>
+    <li><code class="highlighter-rouge">Nodejs &gt;= 6.9.1</code></li>
+    <li><code class="highlighter-rouge">NPM &gt;= 3.8.10</code></li>
+  </ul>
+
+  <p>Mọi thắc mắc, lỗi xảy ra trong quá trình phát triển bạn có thể <a href="https://github.com/vunb/kites/issues">tạo issue ở đây</a>:</p>
+
+  <ul>
+    <li>Issues Tracking: <a href="https://github.com/vunb/kites/issues">https://github.com/vunb/kites/issues</a></li>
+  </ul>
+</section>
+
+<h2 id="kites-apidoc-template">ApiDoc Template</h2>
+
+<p><strong>ApiDoc</strong> hay tài liệu hướng dẫn sử dụng API là một nội dung kỹ thuật có thể phân phối hoặc dùng để tham chiếu, bao gồm những hướng dẫn sử dụng và tích hợp API một cách hiệu quả.</p>
+
+<h3>Tại sao tài liệu API lại quan trọng?</h3>
+
+<p>Một vài gạch đầu dòng cho biết <code class="highlighter-rouge">ApiDoc</code> rất quan trọng:</p>
+
+<ul>
+  <li><strong>Cải thiện trải nghiệm người dùng</strong>: Nếu bạn có tài liệu hướng dẫn tốt, nhiều người sẽ dễ dàng tìm thấy giá trị trong các dịch vụ của bạn, dẫn tới sự hợp tác và tăng trưởng.</li>
+  <li><strong>Giúp nhiều người biết đến API của bạn</strong>: Kites cũng muốn được mọi người biết đến nhiều hơn và bạn đang đọc tài liệu về <code class="highlighter-rouge">kites</code> :smile:</li>
+  <li><strong>Tiết kiệm thời gian hỗ trợ và chi phí</strong>: Tài liệu tốt giúp giảm thời gian hỗ trợ người dùng mới, thành viên mới của team hoặc của đối tác</li>
+  <li><strong>Dễ bảo trì</strong>: Apidoc giúp team của bạn biết cụ thể và chi tiết tài nguyên, phương thức, api, .. giúp bạn biết làm thế nào để cải tiến và năng hiệu suất cho hệ thống và sản phẩm.</li>
+</ul>
+
+<p>Tài liệu hướng dẫn sử dụng API thường được khởi tạo (<a href="#kites-init-apidoc-1">1</a>) và bảo trì (<a href="#kites-init-apidoc-2">2</a>) bằng cách soạn thảo văn bản thông thường hoặc theo chuẩn mở <a href="https://swagger.io/specification/">OpenAPI/Swagger Sepecification</a>, sau đó bạn hoàn toàn có thể đưa lên Web Online (<a href="#kites-init-apidoc-3">3</a>). Trong phạm vi của kites framework thì kites sẽ hỗ trợ bạn tạo ra một trang tài liệu tĩnh được dùng để mô tả và hướng dẫn lập trình tích hợp với API của bạn hiệu quả như trang <a href="https://kites.nodejs.vn/docs">demo này</a>.</p>
+
+<ul>
+  <li>Truy cập demo: <a href="https://kites.nodejs.vn/docs">https://kites.nodejs.vn/docs</a></li>
+  <li>Một trang khác: <a href="https://docs.yeu.ai/">https://docs.yeu.ai/</a></li>
+  <li>Trang của bạn?</li>
+</ul>
+
+<h3 id="kites-init-apidoc">Cách tạo ApiDoc với kites như thế nào?</h3>
+
+<section>
+
+  <h4 id="kites-init-apidoc-1" class="code">#1. Khởi tạo dự án của bạn</h4>
+
+  <p>Sau khi cài đặt <a href="https://www.npmjs.com/package/@kites/cli">@kites/cli</a> thì bạn có thể khởi tạo dự án của mình bằng các lệnh sau:</p>
+
+  <div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># khởi tạo dự án</span>
+kites init my-project --template apidoc
+
+<span class="c"># di chuyển vào thư mục dự án</span>
+<span class="nb">cd </span>my-project
+
+<span class="c"># cài đặt các phụ thuộc và công cụ build</span>
+npm install
+
+<span class="c"># build trang tài liệu mà bạn đã viết bằng markdown</span>
+npm run build
+
+<span class="c"># chạy lệnh sau đây để xem thành quả tại http://localhost:3000</span>
+npm start
+</code></pre>
+  </div>
+
+  <h4 id="kites-init-apidoc-2" class="code">#2. Phát triển và bảo trì dự án ApiDoc</h4>
+
+  <p>Rõ ràng tài liệu của bạn sẽ thay đổi khi có cập nhật và nâng cấp. Theo đó, thì bạn cũng cần cập nhật nội dung tài liệu ApiDoc của mình trong thư mục <code class="highlighter-rouge">source/includes</code>. Để nhìn thấy kết quả luôn trong quá trình sửa đổi tài liệu, chạy lệnh:</p>
+
+  <div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># chạy ở chế độ phát triển tài liệu</span>
+npm run dev
+</code></pre>
+  </div>
+
+  <p>Chú ý: Nếu cần thiết thay đổi thứ tự xuất hiện của tài liệu, hãy sửa đổi nội dung file <code class="highlighter-rouge">index.yml</code>, mục <code class="highlighter-rouge">includes</code> như hình sau đây.</p>
+
+  <p><img src="/images/kites/templates/apidoc.png" alt="apidoc" /></p>
+
+</section>
+
+<h4 id="kites-init-apidoc-3" class="code">#3. Đưa tài liệu lên Web Online</h4>
+
+<p>Sau khi tài liệu đã được build bạn hoàn toàn có thể đưa trang tài liệu của mình lên Web Online, bằng 1 trong 3 phương án sau đây.</p>
+
+<p><strong>Phương án 1</strong>: Bạn có vps hoặc máy chủ riêng, bạn chỉ cần up code và chạy lệnh</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># tại thư mục của dự án</span>
+npm start
+</code></pre>
+</div>
+
+<p><strong>Phương án 2</strong>: Đưa lên heroku</p>
+
+<p><a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy" /></a></p>
+
+<p><strong>Phương án 3</strong>: Đưa lên Github Pages</p>
+
+<p>Bạn hãy dùng <code class="highlighter-rouge">git</code> để đưa trang tài liệu của mình lên Github, ý tưởng là bạn có thể lưu trang tài liệu của trên nhánh <code class="highlighter-rouge">gh-pages</code> hoặc sử dụng thư mục <code class="highlighter-rouge">docs</code> trên nhánh master.</p>
+
+<p>Để cho đơn giản mình chọn thư mục <code class="highlighter-rouge">docs</code> trên nhánh master, các bạn có thể thao tác với <code class="highlighter-rouge">git</code> bằng các lệnh sau đây.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># tại thư mục của dự án</span>
+git init
+git remote add origin git@github.com:your-user-name/your-kites-apidoc.git
+
+<span class="c"># build lại dự án trước khi publish</span>
+npm run build
+
+<span class="c"># add toàn bộ source code</span>
+git add .
+git commit -m <span class="s2">"init api document"</span>
+
+<span class="c"># add tài liệu đã được build ra</span>
+git add -f docs/<span class="k">*</span>
+git commit -m <span class="s2">"update document"</span>
+
+git push origin master
+</code></pre>
+</div>
+
+<ul>
+  <li>Thêm: Bạn có thể cấu hình domain cho trang tài liệu của mình bằng hướng dẫn <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/">Using a custom domain with GitHub Pages</a></li>
+</ul>
+
+<h2 id="kites-chatbot-template">Chatbot Template</h2>
 
         </div>
         
